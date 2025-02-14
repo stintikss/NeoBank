@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+
+* {
+  -webkit-user-drag: none; /* Для браузеров на базе WebKit (например, Chrome) */
+  user-drag: none; /* Стандартное свойство */
+}
+
