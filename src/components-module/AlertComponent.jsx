@@ -7,8 +7,7 @@ const AlertComponent = ({ isClicked, login, password }) => {
     if (isClicked) {
         localStorage.setItem("login", login);
         localStorage.setItem("password", password);
-        navigate('/home')
-        window.history.replaceState(null, "", "/home");
+        navigate('/profile')
     }
   });
 };

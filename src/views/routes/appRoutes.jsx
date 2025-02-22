@@ -1,6 +1,8 @@
 import { Navigate, Outlet } from "react-router-dom";
 import Auth from '../pages/Auth';
 import Main from '../pages/Main';
+import CodeName from "../pages/CodeName";
+import Test from "../pages/Test";
 
 export const appRoutes = [
   {
@@ -12,7 +14,15 @@ export const appRoutes = [
     element: <Main />,
   },
   {
-    path: "*",  // Все остальные пути ведут на /home
+    path: '/profile',
+    element: <CodeName />,
+  },
+  {
+    path: '/test',
+    element: <Test />,
+  },
+  {
+    path: "*",  
     element: <Navigate to="/home" />,
   },
 ];

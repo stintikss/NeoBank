@@ -4,24 +4,58 @@ import SecretCode from '../../components-module/SecretCode';
 
 const Main = () => {
   const [showSecretCode, setShowSecretCode] = useState(false);
-  const [showPage, setPage] = useState(false)
+  const [showPage, setShowPage] = useState(false);
+  const [name, setName] = useState(""); 
   const navigate = useNavigate();
 
   useEffect(() => {
+    const checkInactivity = () => {
+      const lastVisit = localStorage.getItem("lastVisit");
+      const now = Date.now();
+
+      if (lastVisit && now - lastVisit > 300000) { // 30 минут
+        navigate("/login", { replace: true });
+      }
+    };
+
+    const interval = setInterval(checkInactivity, 1000);
+
+    const updateActivity = () => {
+      localStorage.setItem("lastVisit", Date.now());
+    };
+
+    document.addEventListener("mousemove", updateActivity);
+    document.addEventListener("keydown", updateActivity);
+
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener("mousemove", updateActivity);
+      document.removeEventListener("keydown", updateActivity);
+    };
+  }, [navigate]);
+
+  useEffect(() => {
+
     const LoginBD = localStorage.getItem("login");
     const PassworBD = localStorage.getItem("password");
     const SecretCodeInStorage = localStorage.getItem('SecretCode');
 
+    const CodeBD = localStorage.getItem('SecretCode');
+    const NameBD = localStorage.getItem('Name');
+
     if (!LoginBD || !PassworBD) {
-      navigate("/login");
+      navigate('/login');
+    } else if (!CodeBD || !NameBD) {
+      navigate("/profile");
     } else {
-      // Проверка наличия SecretCode в localStorage
+      setName(NameBD); 
+
       if (!SecretCodeInStorage) {
-        setShowSecretCode(true);  // Если кода нет, показываем компонент
-        setPage(false)
+        setShowSecretCode(true);  
+        setShowPage(false);
       } else {
-        setShowSecretCode(false); // Если код есть, не показываем компонент
-        setPage(true)
+        setShowSecretCode(false);
+        setShowPage(true);
       }
     }
   }, [navigate]);
@@ -32,7 +66,7 @@ const Main = () => {
         {showSecretCode && <SecretCode />}
       </div>
       {showPage && (
-        <h1>ПРИВЕТ</h1>
+        <h1>ПРИВЕТ, {name}</h1> 
       )}
     </>
   );
