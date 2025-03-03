@@ -32,6 +32,14 @@ const SecretCode = () => {
     const ButtonNameReq = () => {
         localStorage.setItem('Name', NameInput)
         navigate('/home')
+        const cameFromStartClient = location.state?.fromStartClient;
+
+        // Если пришел с /startclient, возвращаем его туда, иначе на /home
+        if (cameFromStartClient) {
+            navigate('/startclient');
+        } else {
+            navigate('/home');
+        }
 
     }
 

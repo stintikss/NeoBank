@@ -3,6 +3,7 @@ import Auth from '../pages/Auth';
 import Main from '../pages/Main';
 import CodeName from "../pages/CodeName";
 import Test from "../pages/Test";
+import StartClient from '../pages/Startclient'
 
 export const appRoutes = [
   {
@@ -20,6 +21,10 @@ export const appRoutes = [
   {
     path: '/test',
     element: <Test />,
+  },
+  {
+    path: '/startclient',
+    element: <StartClient />,
   },
   {
     path: "*",  

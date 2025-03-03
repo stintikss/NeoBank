@@ -14,7 +14,6 @@ const CodeName = () => {
         }
     },);
     
-
     return(
         <>
             {checkRegister ? (
