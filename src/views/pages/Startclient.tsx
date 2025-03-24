@@ -7,6 +7,7 @@ import Debit from "../../content/Debit";
 import Buisness from "../../content/Buisness";
 import Advertisement_pages from "../../content/Parallel/Advertisement_pages";
 import AboutBank from "../../content/Parallel/AboutBank";
+import Convecrot from "../../content/Parallel/Convecrot";
 
 
 enum PageType {
@@ -35,6 +36,7 @@ const Startclient: React.FC = () => {
 
     const [roadMap, setRoadMap] = useState<boolean>(false)
     const [aboutBank, setAboutBank] = useState<boolean>(false)
+    const [convecrot, setConvector] = useState<boolean>(false)
     
 
     useEffect(() => {
@@ -95,22 +97,27 @@ const Startclient: React.FC = () => {
             setRoadMap(true)
             setNewCard(true)
             setAboutBank(false)
+            setConvector(false)
         } else if (item === "Конвертер") {
             setRoadMap(false)
             setNewCard(true)
             setAboutBank(false)
+            setConvector(true)
         } else if (item === "Продукты") {
             setRoadMap(false)
             setNewCard(true)
             setAboutBank(false)
+            setConvector(false)
         } else if (item === "Отзывы") {
             setRoadMap(false)
             setNewCard(true)
             setAboutBank(false)
+            setConvector(false)
         } else if (item === "О банке") {
             setRoadMap(false)
             setNewCard(false)
             setAboutBank(true)
+            setConvector(false)
         }
         setActive(item);
     
@@ -229,7 +236,9 @@ const Startclient: React.FC = () => {
                             {aboutBank && (
                                 <AboutBank />
                             )}
-                            
+                            {convecrot && (
+                                <Convecrot />
+                            )}
                             
                             {roadMap && (
                                     <div className="flex justify-center">

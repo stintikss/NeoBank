@@ -24,7 +24,7 @@ const AboutBank: React.FC = () => {
                 </div>
             </div>
         </div>
-        <div className='w-full bg-[white] h-[600px] justify-center flex'>
+        <div className='w-full bg-[white] h-[600px] justify-center flex border-b-2 border-[#9b9b9b]'>
             <div className='flex w-[910px] justify-center flex-col'>
                 <div className='w-[900px]'>
                     <p className='text-[30px] font-bold text-[#252528e0]' style={{fontFamily: "Rubik, sans-serif"}}>Цифровой опыт</p>
@@ -35,7 +35,18 @@ const AboutBank: React.FC = () => {
                     <p className='text-[#1c1c2ce0] font-[500] text-[18px]' style={{fontFamily: "Rubik, sans-serif"}}>NeoBank — это инновации, удобство и скорость. <br/>В будущем — передовое мобильное приложение, <br/>интеллектуальные финансы и максимум удобства для клиентов.</p>
                 </div>
             </div>
-
+        </div>
+        <div className='bg-[white] w-full h-[600px] items-center flex flex-col'>
+            <div className='flex w-[910px] justify-center flex-col h-[210px]'>
+                <div className='text-[#252528e0] text-[45px] font-bold' style={{fontFamily: "Rubik, sans-serif"}}>
+                    <p>Награды не цель нашей работы, <br/>но получать их приятно</p>
+                </div>
+            </div>
+            <div className='flex gap-[45px]'>
+                <img src='/Job.png'/>
+                <img src='/Soft.png'/>
+                <img src='/Banking.png'/>
+            </div>
         </div>
         
       </>

@@ -85,7 +85,7 @@ const Auth = () => {
                         alt="NeonBank"
                         className="drag-none select-none h-[90px]"
                     />
-                    <div className="flex items-center">
+                    <div className="flex items-center cursor-pointer" onClick={() => navigate('/startclient')}>
                         <img 
                             src="/Frame.svg" 
                             alt="Exit"
@@ -108,6 +108,7 @@ const Auth = () => {
                     />
                     <button 
                         className="bg-[#F0F0F0] h-[40px] w-[190px] rounded-[15px] font-Rubik cursor-pointer"
+                        onClick={() => navigate('/startclient')}
                         style={{ fontFamily: 'Rubik, sans-serif' }}>
                         🚀 Стать клиентом
                     </button>

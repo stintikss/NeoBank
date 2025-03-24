@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SecretCode from '../../components-module/SecretCode';
+import Home from './Home'
 
 const Main = () => {
   const [showSecretCode, setShowSecretCode] = useState(false);
@@ -66,7 +67,7 @@ const Main = () => {
         {showSecretCode && <SecretCode />}
       </div>
       {showPage && (
-        <h1>ПРИВЕТ, {name}</h1> 
+        <Home />
       )}
     </>
   );
